@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sojson.permission.service.ProductRepository">
+
+ <resultMap id="BaseResultMap" type="com.sojson.common.model.Product" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="psize" property="size" jdbcType="INTEGER" />
+  </resultMap>
+
+<select id="selectProductById" resultMap="BaseResultMap" resultType="com.sojson.common.model.Product">
+	select id,name,psize from  tpss_interface.product where id =#{id} 
+	<!--select * from product where id =#{id} for update -->
+</select>
+<update id="reduceNum" parameterType="com.sojson.common.model.Product" >
+	update  tpss_interface.product set psize=psize-#{nums} where id=#{id}
+</update>
+</mapper>

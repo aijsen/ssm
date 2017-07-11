@@ -1,0 +1,72 @@
+
+
+/*Data for the table u_permission */
+select * from u_permission
+insert  into u_permission(id,url,name) values (4,'/permission/index.shtml','权限列表');
+insert  into u_permission(id,url,name) values (6,'/permission/addPermission.shtml','权限添加');
+insert  into u_permission(id,url,name) values (7,'/permission/deletePermissionById.shtml','权限删除');
+insert  into u_permission(id,url,name) values (8,'/member/list.shtml','用户列表');
+insert  into u_permission(id,url,name) values (9,'/member/online.shtml','在线用户');
+insert  into u_permission(id,url,name) values (10,'/member/changeSessionStatus.shtml','用户Session踢出');
+insert  into u_permission(id,url,name) values (11,'/member/forbidUserById.shtml','用户激活&禁止');
+insert  into u_permission(id,url,name) values (12,'/member/deleteUserById.shtml','用户删除');
+insert  into u_permission(id,url,name) values (13,'/permission/addPermission2Role.shtml','权限分配');
+insert  into u_permission(id,url,name) values (14,'/role/clearRoleByUserIds.shtml','用户角色分配清空');
+insert  into u_permission(id,url,name) values (15,'/role/addRole2User.shtml','角色分配保存');
+insert  into u_permission(id,url,name) values (16,'/role/deleteRoleById.shtml','角色列表删除');
+insert  into u_permission(id,url,name) values (17,'/role/addRole.shtml','角色列表添加');
+insert  into u_permission(id,url,name) values (18,'/role/index.shtml','角色列表');
+insert  into u_permission(id,url,name) values (19,'/permission/allocation.shtml','权限分配');
+insert  into u_permission(id,url,name) values (20,'/role/allocation.shtml','角色分配');
+
+
+insert  into u_role(id,name,type) values(1,'系统管理员','888888');
+insert  into u_role(id,name,type) values(3,'权限角色','100003');
+insert  into u_role(id,name,type) values(4,'用户中心','100002');
+
+/*Data for the table u_role_permission */
+
+
+insert  into u_role_permission(rid,pid) values (4,8);
+insert  into u_role_permission(rid,pid) values (4,9);
+insert  into u_role_permission(rid,pid) values (4,10);
+insert  into u_role_permission(rid,pid) values (4,11);
+insert  into u_role_permission(rid,pid) values (4,12);
+insert  into u_role_permission(rid,pid) values (3,4);
+insert  into u_role_permission(rid,pid) values (3,6);
+insert  into u_role_permission(rid,pid) values (3,7);
+insert  into u_role_permission(rid,pid) values (3,13);
+insert  into u_role_permission(rid,pid) values (3,14);
+insert  into u_role_permission(rid,pid) values (3,15);
+insert  into u_role_permission(rid,pid) values (3,16);
+insert  into u_role_permission(rid,pid) values (3,17);
+insert  into u_role_permission(rid,pid) values (3,18);
+insert  into u_role_permission(rid,pid) values (3,19);
+insert  into u_role_permission(rid,pid) values (3,20);
+insert  into u_role_permission(rid,pid) values (1,4);
+insert  into u_role_permission(rid,pid) values (1,6);
+insert  into u_role_permission(rid,pid) values (1,7);
+insert  into u_role_permission(rid,pid) values (1,8);
+insert  into u_role_permission(rid,pid) values (1,9);
+insert  into u_role_permission(rid,pid) values (1,10);
+insert  into u_role_permission(rid,pid) values (1,11);
+insert  into u_role_permission(rid,pid) values (1,12);
+insert  into u_role_permission(rid,pid) values (1,13);
+insert  into u_role_permission(rid,pid) values (1,14);
+insert  into u_role_permission(rid,pid) values (1,15);
+insert  into u_role_permission(rid,pid) values (1,16);
+insert  into u_role_permission(rid,pid) values (1,17);
+insert  into u_role_permission(rid,pid) values (1,18);
+insert  into u_role_permission(rid,pid) values (1,19);
+insert  into u_role_permission(rid,pid) values (1,20);
+
+select to_char(create_time,'yyyy-MM-dd hh:mm:ss') from u_user;
+
+insert  into u_user(id,nickname,email,pswd,create_time,last_login_time,status) values(1,'管理员','admin','57eb72e6b78a87a12d46a7f5e9315138',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1);
+insert  into u_user(id,nickname,email,pswd,create_time,last_login_time,status) values(11,'soso','8446666@qq.com','d57ffbe486910dd5b26d0167d034f9ad',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,1);
+insert  into u_user(id,nickname,email,pswd,create_time,last_login_time,status) values(12,'8446666','8446666','4afdc875a67a55528c224ce088be2ab8',CURRENT_TIMESTAMP,'2016-06-15 17:03:16',1);
+
+insert  into u_user_role("UID",rid) values (12,4);
+insert  into u_user_role("UID",rid) values (11,3);
+insert  into u_user_role("UID",rid) values (11,4);
+insert  into u_user_role("UID",rid) values (1,1);
